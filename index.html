@@ -5,52 +5,21 @@
 </head>
 <!-- <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 <body style="margin: 0px; overflow: hidden;">
 <a-scene vr-mode-ui="enabled: false"
     renderer="logarithmicDepthBuffer: false" embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
     <a-marker type="barcode" value="6">
-        <a-entity id="mole1" position="-2 0 2" scale="0.05 0.05 0.05" gltf-model="url(/ar/scene.gltf)"></a-entity>
-        <a-entity id="mole2" position="0 0 2" scale="0.05 0.05 0.05" gltf-model="url(/ar/scene.gltf)"></a-entity>
-        <a-entity id="mole3" position="2 0 2" scale="0.05 0.05 0.05" gltf-model="url(/ar/scene.gltf)"></a-entity>
-        <a-entity id="mole4" position="-2 0 0" scale="0.05 0.05 0.05" gltf-model="url(/ar/scene.gltf)"></a-entity>
-        <a-entity id="mole5" position="2 0 0" scale="0.05 0.05 0.05" gltf-model="url(/ar/scene.gltf)"></a-entity>
-        <a-entity id="mole6" position="-2 0 -2" scale="0.05 0.05 0.05" gltf-model="url(/ar/scene.gltf)"></a-entity>
-        <a-entity id="mole7" position="0 0 -2" scale="0.05 0.05 0.05" gltf-model="url(/ar/scene.gltf)"></a-entity>
-        <a-entity id="mole8" position="2 0 -2" scale="0.05 0.05 0.05" gltf-model="url(/ar/scene.gltf)"></a-entity>
+        <a-entity id="mole1" position="-2 -0.5 2" scale="0.05 0.05 0.05" gltf-model="url(/ar/scene.gltf)"></a-entity>
+        <a-entity id="mole2" position="0 -0.5 2" scale="0.05 0.05 0.05" gltf-model="url(/ar/scene.gltf)"></a-entity>
+        <a-entity id="mole3" position="2 -0.5 2" scale="0.05 0.05 0.05" gltf-model="url(/ar/scene.gltf)"></a-entity>
+        <a-entity id="mole4" position="-2 -0.5 0" scale="0.05 0.05 0.05" gltf-model="url(/ar/scene.gltf)"></a-entity>
+        <a-entity id="mole5" position="2 -0.5 0" scale="0.05 0.05 0.05" gltf-model="url(/ar/scene.gltf)"></a-entity>
+        <a-entity id="mole6" position="-2 -0.5 -2" scale="0.05 0.05 0.05" gltf-model="url(/ar/scene.gltf)"></a-entity>
+        <a-entity id="mole7" position="0 -0.5 -2" scale="0.05 0.05 0.05" gltf-model="url(/ar/scene.gltf)"></a-entity>
+        <a-entity id="mole8" position="2 -0.5 -2" scale="0.05 0.05 0.05" gltf-model="url(/ar/scene.gltf)"></a-entity>
     </a-marker>
     <a-entity camera></a-entity>
 </a-scene>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    console.log("Start!");
-    const moles = document.querySelectorAll('a-entity');
-    let appearTime = 2000; // Initial time in milliseconds a mole stays up.
-
-    function showAndHideMole() {
-      const moleIndex = Math.floor(Math.random() * moles.length);
-      console.log(moleIndex);
-      const mole = moles[moleIndex];
-      
-      // Make mole appear
-      mole.object3D.visible = true;
-
-      setTimeout(() => {
-        // Make mole disappear
-        mole.object3D.visible = false;
-        
-        // Check if game continues and adjust timing
-        if (appearTime > 500) { // Set a lower limit for appear time
-          appearTime *= 0.9; // Decrease time by 10%
-        }
-
-        // Call the function again to show another mole
-        showAndHideMole();
-      }, appearTime);
-    }
-
-    showAndHideMole();
-});
-</script>
 </body>
 </html>
