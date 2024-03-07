@@ -38,6 +38,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Duration moles stay up becomes progressively shorter
     let upTime = Math.max(500, 3000 - Date.now() / 1000);
     let downTime = upTime + 500; // Stay down a bit longer
+    console.log(mole);
+    console.log(upTime);
+    console.log(downTime);
     
     // Animate mole up
     mole.setAttribute('animation', `property: position; to: ${mole.getAttribute('position').x} 0 ${mole.getAttribute('position').z}; dur: ${upTime}; easing: easeOutQuad;`);
